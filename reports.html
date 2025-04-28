@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediTrack - Reports</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-pills"></i>
+            <span>MediTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="products.html"><i class="fas fa-capsules"></i> Products</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+            </li>
+            <li class="active">
+                <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            </li>
+            <li>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+        </ul>
+        <div class="user-info">
+            <img src="Ms.jpg" alt="User" />
+            <div>
+                <h4>Admin User</h4>
+                <small>Pharmacy Manager</small>
+            </div>
+        </div>
+    </div>
+
+    <div id="reports-page">
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search for reports..." />
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-envelope"></i>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h1>Reports</h1>
+                <div class="report-actions">
+                    <button class="generate-btn" id="generate-report-btn"><i class="fas fa-sync-alt"></i> Generate Reports</button>
+                    <div class="export-options">
+                        <button class="export-btn" id="export-pdf"><i class="fas fa-file-pdf"></i> PDF</button>
+                        <button class="export-btn" id="export-excel"><i class="fas fa-file-excel"></i> Excel</button>
+                        <button class="export-btn" id="export-csv"><i class="fas fa-file-csv"></i> CSV</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="date-filter">
+                <div class="form-group">
+                    <label for="date-range">Date Range:</label>
+                    <select id="date-range">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="week" selected>This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="quarter">This Quarter</option>
+                        <option value="year">This Year</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                </div>
+                <div class="custom-date-range" id="custom-date-range" style="display: none;">
+                    <div class="form-group">
+                        <label for="start-date">Start Date:</label>
+                        <input type="date" id="start-date" />
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">End Date:</label>
+                        <input type="date" id="end-date" />
+                    </div>
+                </div>
+                <button class="generate-btn" id="apply-date-filter"><i class="fas fa-filter"></i> Apply Filter</button>
+            </div>
+
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>Sales Overview</h3>
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="report-content">
+                        <div class="report-stat">
+                            <h2 id="total-sales">₹12,450</h2>
+                            <p>Total Sales</p>
+                        </div>
+                        <div class="report-chart">
+                            <canvas id="sales-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-footer">
+                        <div class="trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span id="sales-trend">15% increase from last period</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>Inventory Status</h3>
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="report-content">
+                        <div class="report-stat">
+                            <h2 id="total-products">245</h2>
+                            <p>Total Products</p>
+                        </div>
+                        <div class="report-chart">
+                            <canvas id="inventory-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-footer">
+                        <div class="trend negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span id="inventory-trend">5% decrease in stock levels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>Expiry Tracking</h3>
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <div class="report-content">
+                        <div class="report-stat">
+                            <h2 id="expiring-soon">25</h2>
+                            <p>Products Expiring Soon</p>
+                        </div>
+                        <div class="report-chart">
+                            <canvas id="expiry-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-footer">
+                        <div class="trend negative">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span id="expiry-trend">10 products expire this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>Top Selling Products</h3>
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="report-content">
+                        <ul class="top-products" id="top-products-list">
+                            <li>
+                                <span>Paracetamol</span>
+                                <span>150 units</span>
+                            </li>
+                            <li>
+                                <span>Amoxicillin</span>
+                                <span>120 units</span>
+                            </li>
+                            <li>
+                                <span>Vitamin C</span>
+                                <span>95 units</span>
+                            </li>
+                            <li>
+                                <span>Aspirin</span>
+                                <span>80 units</span>
+                            </li>
+                            <li>
+                                <span>Ibuprofen</span>
+                                <span>75 units</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="report-footer">
+                        <a href="#" class="view-all-btn" id="view-all-top-products">View All Products</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-details" id="detailed-reports">
+                <h2>Detailed Reports</h2>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="sales-report">Sales Report</button>
+                    <button class="tab-btn" data-tab="inventory-report">Inventory Report</button>
+                    <button class="tab-btn" data-tab="expiry-report">Expiry Report</button>
+                    <button class="tab-btn" data-tab="batch-report">Batch Report</button>
+                </div>
+                
+                <div class="tab-content active" id="sales-report">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th>Payment Method</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sales-report-body">
+                                <!-- Sales data will be populated here -->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="text-right"><strong>Grand Total:</strong></td>
+                                    <td id="sales-grand-total">$12,450</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="inventory-report">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Current Stock</th>
+                                    <th>Reorder Level</th>
+                                    <th>Status</th>
+                                    <th>Last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-report-body">
+                                <!-- Inventory data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="expiry-report">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Batch Number</th>
+                                    <th>Quantity</th>
+                                    <th>Expiry Date</th>
+                                    <th>Days Remaining</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expiry-report-body">
+                                <!-- Expiry data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="batch-report">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Batch Number</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Manufacturing Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Supplier</th>
+                                </tr>
+                            </thead>
+                            <tbody id="batch-report-body">
+                                <!-- Batch data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediTrack - Medical Shop Inventory</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-pills"></i>
+            <span>MediTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active">
+                <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="products.html"><i class="fas fa-capsules"></i> Products</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+            </li>
+            <li>
+                <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            </li>
+            <li>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+        </ul>
+        <div class="user-info">
+            <img src="Ms.jpg" alt="User" />
+            <div>
+                <h4>Admin User</h4>
+                <small>Pharmacy Manager</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for medicines..." />
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-envelope"></i>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <h1>Dashboard</h1>
+            <div class="date">
+                <span id="current-date">Today's Date</span>
+            </div>
+
+            <div class="insights">
+                <div class="card products">
+                    <div class="card-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Total Products</h3>
+                        <h1>150</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="percentage">
+                            <p>85%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card out-of-stock">
+                    <div class="card-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Out of Stock</h3>
+                        <h1>20</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="percentage">
+                            <p>13%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card expiring">
+                    <div class="card-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Expiring Soon</h3>
+                        <h1>35</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="percentage">
+                            <p>23%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-orders">
+                <h2>Recent Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Bibek Das</td>
+                            <td>Paracetamol</td>
+                            <td>5</td>
+                            <td><span class="status sold">Sold</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Samiran Roy</td>
+                            <td>Rablet-20</td>
+                            <td>2</td>
+                            <td><span class="status on-hold" data-reason="Awaiting payment confirmation">Order on Hold</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>#003</td>
+                            <td>Rakesh</td>
+                            <td>Aspirin</td>
+                            <td>3</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="orders.html">Show All</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

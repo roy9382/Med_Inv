@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediTrack - Products</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-barcode-button.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-pills"></i>
+            <span>MediTrack</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li class="active">
+                <a href="products.html"><i class="fas fa-capsules"></i> Products</a>
+            </li>
+            <li>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+            </li>
+            <li>
+                <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            </li>
+            <li>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+        </ul>
+        <div class="user-info">
+            <img src="Ms.jpg" alt="User" />
+            <div>
+                <h4>Admin User</h4>
+                <small>Pharmacy Manager</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for products..." />
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-envelope"></i>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h1>Products</h1>
+                <button class="add-btn"><i class="fas fa-plus"></i> Add New Product</button>
+                <button class="add-barcode-btn" style="margin-left: 10px;"><i class="fas fa-barcode"></i> Add Product with Barcode</button>
+            </div>
+
+            <div class="filter-container">
+                <div class="filter">
+                    <label for="category-filter">Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="medicine">Medicine</option>
+                        <option value="antibiotic">Antibiotic</option>
+                        <option value="vitamin">Vitamin</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="stock-filter">Stock Status:</label>
+                    <select id="stock-filter">
+                        <option value="all">All</option>
+                        <option value="in-stock">In Stock</option>
+                        <option value="low-stock">Low Stock</option>
+                        <option value="out-of-stock">Out of Stock</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-product-id="prod-001">
+                    <div class="product-badge in-stock">In Stock</div>
+                    <div class="product-image">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3>Paracetamol</h3>
+                        <p class="category">Medicine</p>
+                        <div class="product-info">
+                            <span><i class="fas fa-cubes"></i> 100 units</span>
+                            <span><i class="fas fa-calendar-alt"></i> Exp: 2025-06-15</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="prod-002">
+                    <div class="product-badge in-stock">In Stock</div>
+                    <div class="product-image">
+                        <i class="fas fa-capsule"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3>Amoxicillin</h3>
+                        <p class="category">Antibiotic</p>
+                        <div class="product-info">
+                            <span><i class="fas fa-cubes"></i> 50 units</span>
+                            <span><i class="fas fa-calendar-alt"></i> Exp: 2025-09-10</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="prod-003">
+                    <div class="product-badge low-stock">Low Stock</div>
+                    <div class="product-image">
+                        <i class="fas fa-tablets"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3>Aspirin</h3>
+                        <p class="category">Medicine</p>
+                        <div class="product-info">
+                            <span><i class="fas fa-cubes"></i> 15 units</span>
+                            <span><i class="fas fa-calendar-alt"></i> Exp: 2024-12-20</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="prod-004">
+                    <div class="product-badge out-of-stock">Out of Stock</div>
+                    <div class="product-image">
+                        <i class="fas fa-prescription-bottle"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3>Ibuprofen</h3>
+                        <p class="category">Medicine</p>
+                        <div class="product-info">
+                            <span><i class="fas fa-cubes"></i> 0 units</span>
+                            <span><i class="fas fa-calendar-alt"></i> Exp: 2025-03-15</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
